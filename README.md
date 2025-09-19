@@ -33,5 +33,4 @@ This project is a simple blockchain implementation written in Go. It demonstrate
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ChristianPacifici/simple-blockchain.git
-   cd simple-blockchain
+   git clone https://github.com/ChristianPacifici/ferentum-blockchain.git
