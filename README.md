@@ -1,4 +1,9 @@
-# Ferentu, Blockchain in Go
+# Ferentum Blockchain in Go
+
+[![Go Version](https://img.shields.io/badge/go-1.20+-blue.svg)](https://golang.org)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/ChristianPacifici/ferentum-blockchain)
+
 
 A minimal blockchain implementation in Go, built for learning and experimentation.
 
@@ -27,10 +32,16 @@ This project is a simple blockchain implementation written in Go. It demonstrate
 ### Prerequisites
 
 - [Go](https://golang.org/dl/) (1.20 or later)
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/) (or any Go-compatible IDE)
 
 ### Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/ChristianPacifici/ferentum-blockchain.git
+   cd ferentum-blockchain
+   ```
+
+2. Run the project
+   ```shell
+      go run main.go
+   ```
