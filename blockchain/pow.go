@@ -6,6 +6,7 @@ type ProofOfWork struct {
 	Target string
 }
 
+
 // NewProofOfWork creates a new proof-of-work
 func NewProofOfWork(b *Block) *ProofOfWork {
 	target := "0000"

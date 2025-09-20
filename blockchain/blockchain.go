@@ -21,7 +21,8 @@ type Block struct {
 // Blockchain is a slice of blocks
 type Blockchain []Block
 
-// NewBlock creates a new block
+
+// NewBlock creates a new block with proof-of-work
 func NewBlock(index int, data, prevHash string) *Block {
 	block := &Block{
 		Index:     index,
@@ -85,3 +86,4 @@ func LoadBlockchain(filename string) *Blockchain {
 	decoder.Decode(&bc)
 	return &bc
 }
+

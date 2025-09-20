@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"tech.pacifici/blockchain/blockchain"
+
 	"github.com/spf13/cobra"
 )
 
@@ -52,8 +53,43 @@ var validateCmd = &cobra.Command{
 	},
 }
 
+var resetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset the blockchain to genesis",
+	Run: func(cmd *cobra.Command, args []string) {
+		bc := blockchain.Blockchain{*blockchain.GenesisBlock()}
+		bc.SaveBlockchain("ferentum-blockchain.dat")
+		fmt.Println("Blockchain reset to genesis.")
+	},
+}
+
+var infoCmd = &cobra.Command{
+	Use:   "info",
+	Short: "Show blockchain info",
+	Run: func(cmd *cobra.Command, args []string) {
+		bc := blockchain.LoadBlockchain("ferentum-blockchain.dat")
+		fmt.Printf("Number of blocks: %d\n", len(*bc))
+		fmt.Printf("Last block hash: %s\n", (*bc)[len(*bc)-1].Hash)
+		fmt.Printf("Is valid: %t\n", bc.IsValid())
+	},
+}
+
+var mineCmd = &cobra.Command{
+	Use:   "mine [data]",
+	Short: "Mine a new block with data",
+	Args:  cobra.ExactArgs(1),
+	Run: func(cmd *cobra.Command, args []string) {
+		bc := blockchain.LoadBlockchain("ferentum-blockchain.dat")
+		prevBlock := (*bc)[len(*bc)-1]
+		block := blockchain.NewBlock(prevBlock.Index+1, args[0], prevBlock.Hash)
+		*bc = append(*bc, *block)
+		bc.SaveBlockchain("ferentum-blockchain.dat")
+		fmt.Printf("Mined block #%d with hash: %s\n", block.Index, block.Hash)
+	},
+}
+
 func init() {
-	rootCmd.AddCommand(addCmd, printCmd, validateCmd)
+	rootCmd.AddCommand(addCmd, printCmd, validateCmd, resetCmd, infoCmd, mineCmd)
 }
 
 func main() {

@@ -130,14 +130,47 @@ Validates the integrity of the blockchain.
 Is blockchain valid? true
 ```
 
+### Reset the Blockchain
+   ```bash
+   ./ferentum-blockchain reset
+   ```
+Resets the blockchain to the genesis block.
+
+### Show Blockchain Info
+   ```bash
+   ./ferentum-blockchain info
+   ```
+Displays the number of blocks, the last block hash, and whether the blockchain is valid.
+
+**Example Output:**
+```
+Number of blocks: 3
+Last block hash: [hash value]
+Is valid: true
+
+```
+
+### Mine a New Block
+   ```bash
+   ./ferentum-blockchain mine "My Data"
+   ```
+
+Mines a new block with the specified data and adds it to the blockchain.
+
+**Example Output:**
+```
+Mined block #3 with hash: [hash value]
+
+```
+
 ---
 
 ## 🔧 Example Workflow
 
-1. **Initialize the Blockchain**
-   Run any command to create the genesis block and `ferentum-blockchain.dat`:
+
+1. **Reset the Blockchain**
    ```bash
-   ./ferentum-blockchain print
+   ./ferentum-blockchain reset
    ```
 
 2. **Add Blocks**
@@ -146,21 +179,30 @@ Is blockchain valid? true
    ./ferentum-blockchain add "Second Block"
    ```
 
-3. **Print the Blockchain**
+3. **Show Info**
+   ```bash
+   ./ferentum-blockchain info
+   ```
+
+4. **Mine a Block**
+   ```bash
+   ./ferentum-blockchain mine "Mined Block"
+   ```
+
+5. **Print the Blockchain**
    ```bash
    ./ferentum-blockchain print
    ```
 
-4. **Validate the Blockchain**
+6. **Validate the Blockchain**
    ```bash
    ./ferentum-blockchain validate
    ```
-
+   
 ---
 
 ## 🔧 Extending the Project
 
-- **Add More Commands**: Implement commands like `reset`, `info`, or `mine`.
 - **Improve Error Handling**: Add user-friendly error messages.
 - **Add Networking**: Implement peer-to-peer communication.
 - **Add Transactions**: Extend the blockchain to support transactions.
