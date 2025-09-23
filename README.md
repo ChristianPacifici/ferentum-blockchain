@@ -1,5 +1,7 @@
 # Ferentum Blockchain
 
+![Ferentum Blockchain](https://raw.githubusercontent.com/ChristianPacifici/ferentum-blockchain/refs/heads/main/contents/logo.png)
+
 [![Go Version](https://img.shields.io/badge/go-1.20+-blue.svg)](https://golang.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/ChristianPacifici/ferentum-blockchain)
