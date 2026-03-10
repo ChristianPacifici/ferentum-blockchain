@@ -1,29 +1,28 @@
 package blockchain
 
+import "strings"
+
 // ProofOfWork represents a proof-of-work
 type ProofOfWork struct {
-	Block  *Block
-	Target string
+	Block *Block
 }
-
 
 // NewProofOfWork creates a new proof-of-work
 func NewProofOfWork(b *Block) *ProofOfWork {
-	target := "0000"
-	return &ProofOfWork{b, target}
+	return &ProofOfWork{b}
 }
 
 // Run performs the proof-of-work
 func (pow *ProofOfWork) Run() (int, string) {
 	nonce := 0
-	var hash string
+	target := strings.Repeat("0", pow.Block.Difficulty)
+
 	for {
-		hash = pow.Block.CalculateHash()
-		if hash[:len(pow.Target)] == pow.Target {
-			break
+		hash := pow.Block.CalculateHash()
+		if strings.HasPrefix(hash, target) {
+			return nonce, hash
 		}
 		nonce++
 		pow.Block.Nonce = nonce
 	}
-	return nonce, hash
 }
